@@ -1,0 +1,200 @@
+/* WeChat Official Account Styles - 参考优秀公众号文章排版 */
+
+.wechat-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #3f3f3f;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 677px;
+  margin: 0 auto;
+}
+
+/* 一级标题 - 文章大标题 */
+.wechat-container h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  margin: 0 auto 25px;
+  line-height: 1.4;
+  padding: 0 10px;
+}
+
+/* 二级标题 - 大章节标题（如 PART 01） */
+.wechat-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #2c2c2c;
+  padding: 12px 20px;
+  margin: 35px 0 20px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+/* 三级标题 - 小节标题 */
+.wechat-container h3 {
+  font-size: 17px;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin: 25px 0 15px;
+  line-height: 1.5;
+  padding-left: 10px;
+  border-left: 3px solid #576b95;
+}
+
+/* 四级标题 */
+.wechat-container h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c2c2c;
+  margin: 20px 0 12px;
+  line-height: 1.5;
+}
+
+/* 段落 - 首段不缩进，其他缩进 */
+.wechat-container p {
+  margin-bottom: 15px;
+  text-align: justify;
+  text-indent: 2em;
+  line-height: 1.8;
+}
+
+.wechat-container p:first-of-type {
+  text-indent: 0;
+}
+
+/* 强调文字 - 使用蓝色 */
+.wechat-container strong {
+  font-weight: bold;
+  color: #1a5fb4;
+  background: linear-gradient(to bottom, transparent 65%, #e8f0fe 65%);
+  padding: 0 2px;
+}
+
+/* 图片 */
+.wechat-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px auto;
+  border-radius: 6px;
+}
+
+/* 引用块 - 更柔和的样式 */
+.wechat-container blockquote {
+  padding: 12px 20px;
+  margin: 20px 0;
+  background-color: #f8f9fa;
+  border-left: 4px solid #576b95;
+  color: #5f6368;
+  font-size: 15px;
+  line-height: 1.75;
+  border-radius: 0 4px 4px 0;
+}
+
+/* 列表 */
+.wechat-container ul,
+.wechat-container ol {
+  padding-left: 1.8em;
+  margin: 15px 0;
+  line-height: 1.8;
+}
+
+.wechat-container li {
+  margin-bottom: 8px;
+  color: #3f3f3f;
+}
+
+/* 行内代码 */
+.wechat-container code {
+  font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+  background-color: #f1f3f4;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #c0322b;
+  border: 1px solid #e8eaed;
+}
+
+/* 代码块 - 深色主题 */
+.wechat-container pre {
+  background-color: #282c34;
+  color: #abb2bf;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  border: 1px solid #3e4451;
+}
+
+.wechat-container pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+}
+
+/* 表格 */
+.wechat-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wechat-container table th,
+.wechat-container table td {
+  border: 1px solid #e0e0e0;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.wechat-container table th {
+  background-color: #576b95;
+  color: white;
+  font-weight: bold;
+}
+
+.wechat-container table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.wechat-container table tr:hover {
+  background-color: #e8f0fe;
+}
+
+/* 分隔线 */
+.wechat-container hr {
+  border: none;
+  border-top: 2px solid #e8eaed;
+  margin: 30px 0;
+}
+
+/* 链接 */
+.wechat-container a {
+  color: #576b95;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s;
+}
+
+.wechat-container a:hover {
+  border-bottom-color: #576b95;
+}
+
+/* 斜体 */
+.wechat-container em {
+  font-style: italic;
+  color: #5f6368;
+}

@@ -1,0 +1,17 @@
+/* Global styles for the application */
+
+.editor-container {
+  height: calc(100vh - 64px);
+}
+
+.w-md-editor {
+  height: 100% !important;
+}
+
+.w-md-editor-text-pre,
+.w-md-editor-text-input,
+.w-md-editor-text-input > textarea,
+.w-md-editor-preview {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}

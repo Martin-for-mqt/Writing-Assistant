@@ -1,0 +1,1 @@
+export { WeChatPreview } from './WeChatPreview';
