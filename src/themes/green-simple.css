@@ -1,0 +1,614 @@
+/**
+ * GreenSimple Theme - Clean and simple green accent style
+ */
+
+#writing-assistant {
+  padding: 1em;
+  font-family:
+    PingFang SC,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Hiragino Sans GB',
+    'Microsoft YaHei UI',
+    'Microsoft YaHei',
+    Arial,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  word-wrap: break-word;
+  color: #2c2c2c;
+}
+
+#writing-assistant h1,
+#writing-assistant h2,
+#writing-assistant h3,
+#writing-assistant h4,
+#writing-assistant h5,
+#writing-assistant h6 {
+  color: #2bae85;
+  font-weight: 700;
+  line-height: 1.4em;
+  word-break: break-all;
+  font-family:
+    PingFang SC,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Hiragino Sans GB',
+    'Microsoft YaHei UI',
+    'Microsoft YaHei',
+    Arial,
+    sans-serif;
+}
+
+#writing-assistant h1 {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+#writing-assistant h2 {
+  font-size: 24px;
+  margin-top: 36px;
+  margin-bottom: 24px;
+}
+
+/* 首个标题无上边距 */
+#writing-assistant > h1:first-child,
+#writing-assistant > h2:first-child,
+#writing-assistant > h3:first-child,
+#writing-assistant > h4:first-child,
+#writing-assistant > h5:first-child,
+#writing-assistant > h6:first-child {
+  margin-top: 0;
+}
+
+#writing-assistant h3 {
+  font-size: 20px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+}
+
+#writing-assistant h4,
+#writing-assistant h5,
+#writing-assistant h6 {
+  font-size: 18px;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  color: #25936c;
+}
+
+#writing-assistant p {
+  margin: 5px 0 20px;
+  line-height: 1.75em;
+  text-align: start;
+  font-size: 16px;
+  font-weight: 400;
+  color: #2c2c2c;
+  word-break: break-all;
+}
+
+#writing-assistant p:last-child {
+  margin-bottom: 0;
+}
+
+#writing-assistant strong,
+#writing-assistant b {
+  font-weight: 700;
+  color: #2bae85;
+}
+
+#writing-assistant em,
+#writing-assistant i {
+  font-style: italic;
+}
+
+#writing-assistant del,
+#writing-assistant s,
+#writing-assistant strike {
+  text-decoration: line-through;
+  color: #999;
+}
+
+#writing-assistant mark {
+  background: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+#writing-assistant small {
+  font-size: 0.875em;
+  color: #666;
+}
+
+#writing-assistant sup {
+  vertical-align: super;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+#writing-assistant sub {
+  vertical-align: sub;
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+#writing-assistant ins {
+  text-decoration: underline;
+  background: #d4edda;
+  padding: 2px 4px;
+}
+
+#writing-assistant q {
+  quotes: '「' '」' '『' '』';
+  font-style: italic;
+  color: #666;
+}
+
+#writing-assistant q::before {
+  content: open-quote;
+}
+
+#writing-assistant q::after {
+  content: close-quote;
+}
+
+#writing-assistant var {
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+#writing-assistant samp,
+#writing-assistant tt {
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-size: 0.9em;
+}
+
+#writing-assistant abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+#writing-assistant a {
+  color: #2bae85;
+  text-decoration: none;
+  border-bottom: 1px solid #2bae85;
+}
+
+#writing-assistant a:hover {
+  border-bottom-color: #23956b;
+}
+
+#writing-assistant ruby,
+#writing-assistant rt,
+#writing-assistant rp {
+  line-height: 1.4;
+}
+
+#writing-assistant ul,
+#writing-assistant ol {
+  margin: 8px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+  color: #2bae85;
+}
+
+#writing-assistant ol {
+  list-style-type: decimal;
+}
+
+#writing-assistant li {
+  margin: 0;
+  line-height: 1.6;
+  padding-left: 0;
+  font-family:
+    PingFang SC,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Helvetica Neue',
+    'Hiragino Sans GB',
+    'Microsoft YaHei UI',
+    'Microsoft YaHei',
+    Arial,
+    sans-serif;
+}
+
+#writing-assistant li > p {
+  margin: 6px 0;
+}
+
+#writing-assistant li > ul,
+#writing-assistant li > ol {
+  margin: 4px 0;
+}
+
+#writing-assistant ul ul,
+#writing-assistant ul ul ul {
+  color: #25936c;
+}
+
+#writing-assistant ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#writing-assistant li.task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+#writing-assistant input[type='checkbox'] {
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+#writing-assistant blockquote {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-left: 4px solid #2bae85;
+  background: rgba(43, 174, 133, 0.05);
+  border-radius: 0 4px 4px 0;
+}
+
+#writing-assistant blockquote p {
+  margin: 8px 0;
+  color: #666;
+}
+
+#writing-assistant blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+#writing-assistant blockquote blockquote {
+  margin-top: 12px;
+  border-left-color: #25936c;
+  background: rgba(37, 147, 108, 0.05);
+}
+
+#writing-assistant code {
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  padding: 2px 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  color: #2c2c2c;
+}
+
+#writing-assistant pre {
+  margin: 20px 0;
+  padding: 0;
+  background: #f6faf8;
+  border: 1px solid #d4e5de;
+  border-left: 3px solid #2bae85;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#writing-assistant pre code {
+  display: block;
+  padding: 16px 20px;
+  background: transparent;
+  color: #2c2c2c;
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  border: none;
+  border-radius: 0;
+  overflow-x: auto;
+}
+
+#writing-assistant table {
+  width: 100%;
+  margin: 16px 0;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+/* 表头首行样式（替代 thead） */
+#writing-assistant tr:first-child th {
+  background: #f8f9fa;
+  border-bottom: 2px solid #2bae85;
+}
+
+#writing-assistant th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #2c2c2c;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#writing-assistant td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #2c2c2c;
+}
+
+#writing-assistant tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+#writing-assistant tbody tr:hover {
+  background: rgba(43, 174, 133, 0.05);
+}
+
+#writing-assistant .frontmatter-table {
+  margin: 16px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#writing-assistant .frontmatter-table td {
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#writing-assistant .frontmatter-table tr:last-child td {
+  border-bottom: none;
+}
+
+#writing-assistant .frontmatter-key {
+  font-weight: 700;
+  color: #2bae85;
+  background: rgba(43, 174, 133, 0.05);
+  width: 140px;
+}
+
+#writing-assistant .frontmatter-value {
+  color: #2c2c2c;
+}
+
+#writing-assistant hr {
+  border: none;
+  height: 2px;
+  background-color: #2bae85;
+  background: linear-gradient(to right, transparent, #2bae85, transparent);
+  margin: 32px 0;
+}
+
+#writing-assistant img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+#writing-assistant picture {
+  display: block;
+  max-width: 100%;
+}
+
+#writing-assistant picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#writing-assistant figure {
+  margin: 20px 0;
+}
+
+#writing-assistant figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+#writing-assistant figcaption {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+#writing-assistant .footnotes {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+#writing-assistant .footnotes ol {
+  list-style: decimal;
+  padding-left: 24px;
+  color: #2c2c2c;
+}
+
+#writing-assistant .footnote-ref {
+  color: #2bae85;
+  text-decoration: none;
+  border-bottom: 1px dotted #2bae85;
+  cursor: pointer;
+}
+
+#writing-assistant .footnote-backref,
+#writing-assistant .data-footnote-backref {
+  color: #2bae85;
+  text-decoration: none;
+  font-size: 0.875em;
+}
+
+#writing-assistant dl {
+  margin: 16px 0;
+}
+
+#writing-assistant dt {
+  font-weight: 700;
+  color: #2bae85;
+  margin: 8px 0 4px;
+}
+
+#writing-assistant dd {
+  margin: 4px 0 16px 20px;
+  color: #2c2c2c;
+  line-height: 1.6;
+}
+
+#writing-assistant kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #2c2c2c;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#writing-assistant .markdown-alert {
+  margin: 16px 0;
+  padding: 16px;
+  border-left: 4px solid;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+#writing-assistant .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+#writing-assistant .markdown-alert p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+#writing-assistant .markdown-alert-note {
+  border-left-color: #2bae85;
+  background: rgba(43, 174, 133, 0.05);
+}
+
+#writing-assistant .markdown-alert-note .markdown-alert-title {
+  color: #2bae85;
+}
+
+#writing-assistant .markdown-alert-tip {
+  border-left-color: #35cd4b;
+  background: rgba(53, 205, 75, 0.05);
+}
+
+#writing-assistant .markdown-alert-tip .markdown-alert-title {
+  color: #35cd4b;
+}
+
+#writing-assistant .markdown-alert-important {
+  border-left-color: #fdbc40;
+  background: rgba(253, 188, 64, 0.05);
+}
+
+#writing-assistant .markdown-alert-important .markdown-alert-title {
+  color: #fdbc40;
+}
+
+#writing-assistant .markdown-alert-warning {
+  border-left-color: #fc625d;
+  background: rgba(252, 98, 93, 0.05);
+}
+
+#writing-assistant .markdown-alert-warning .markdown-alert-title {
+  color: #fc625d;
+}
+
+#writing-assistant .markdown-alert-caution {
+  border-left-color: #e57373;
+  background: rgba(229, 115, 115, 0.05);
+}
+
+#writing-assistant .markdown-alert-caution .markdown-alert-title {
+  color: #e57373;
+}
+
+#writing-assistant .math-inline {
+  font-family: 'SF Mono', Consolas, Monaco, 'Courier New', monospace;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+#writing-assistant .math-display {
+  display: block;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 1em;
+}
+
+#writing-assistant details {
+  margin: 16px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #f8f9fa;
+}
+
+#writing-assistant summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #2bae85;
+  user-select: none;
+}
+
+#writing-assistant summary:hover {
+  background: rgba(43, 174, 133, 0.05);
+}
+
+#writing-assistant details[open] summary {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#writing-assistant details > div {
+  padding: 16px;
+}
+
+#writing-assistant iframe,
+#writing-assistant video {
+  display: block;
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+#writing-assistant .meta {
+  font-size: 12px;
+  color: #999;
+  margin: 8px 0;
+  text-align: center;
+}
+
+#writing-assistant time {
+  color: #999;
+  font-size: 12px;
+}
+
+#writing-assistant.indent-first-line p {
+  text-indent: 2em;
+}
+
+#writing-assistant.indent-first-line p:first-of-type {
+  text-indent: 0;
+}

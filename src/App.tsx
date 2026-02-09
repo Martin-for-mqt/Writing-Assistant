@@ -5,7 +5,6 @@ import { FormatToolbar } from './components/Toolbar';
 import { WeChatPreview } from './components/WeChatFormatter';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { markdownToHtml } from './utils/markdownParser';
-import { formatForWeChat, wrapInWeChatContainer } from './utils/wechatFormatter';
 import { copyHtmlContent } from './utils/clipboard';
 import { getDefaultTheme } from './utils/themes';
 import type { Theme } from './utils/themes';
@@ -15,15 +14,14 @@ const { Header, Content } = Layout;
 function App() {
   const [markdown, setMarkdown] = useState<string>(`# 欢迎使用写作助手
 
-这是一个专业的**微信公众号** Markdown 编辑器，帮助你快速创建精美的公众号文章。
+这是一个专业的**微信公众号** Markdown 编辑器，支持 13 种精美主题样式，帮助你快速创建美观的公众号文章。
 
 ## 核心功能
 
 编辑器支持以下强大功能：
 
 - **实时转换** - 输入 Markdown 立即预览
-- **多主题支持** - 5种蓝色系主题可选
-- **深色模式** - 完美兼容深色背景
+- **13种主题** - 基于 bm.md 的精美样式
 - **一键复制** - 直接粘贴到公众号编辑器
 
 ### 使用示例
@@ -49,10 +47,9 @@ greet('WeChat');
   const [wechatHtml, setWeChatHtml] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<Theme>(getDefaultTheme());
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  // Auto-convert Markdown to WeChat format
-  const convertToWeChat = async (md: string, theme: Theme, darkMode: boolean) => {
+  // Auto-convert Markdown to HTML
+  const convertToHtml = async (md: string) => {
     if (!md.trim()) {
       setWeChatHtml('');
       return;
@@ -61,11 +58,11 @@ greet('WeChat');
     setLoading(true);
     try {
       const html = await markdownToHtml(md);
-      const formattedHtml = formatForWeChat(html, theme, darkMode);
-      const wrappedHtml = wrapInWeChatContainer(formattedHtml, theme, darkMode);
-      setWeChatHtml(wrappedHtml);
+      // 直接使用 HTML，样式通过 #writing-assistant ID 应用
+      setWeChatHtml(html);
     } catch (error) {
       console.error('Conversion failed:', error);
+      message.error('转换失败，请重试');
     } finally {
       setLoading(false);
     }
@@ -73,26 +70,19 @@ greet('WeChat');
 
   // Initialize and convert on mount
   useEffect(() => {
-    convertToWeChat(markdown, currentTheme, isDarkMode);
+    convertToHtml(markdown);
   }, []);
 
   // Handle Markdown change with auto-convert
   const handleMarkdownChange = (value: string | undefined) => {
     const newMarkdown = value || '';
     setMarkdown(newMarkdown);
-    convertToWeChat(newMarkdown, currentTheme, isDarkMode);
+    convertToHtml(newMarkdown);
   };
 
   // Handle theme change
   const handleThemeChange = (theme: Theme) => {
     setCurrentTheme(theme);
-    convertToWeChat(markdown, theme, isDarkMode);
-  };
-
-  // Handle dark mode change
-  const handleDarkModeChange = (darkMode: boolean) => {
-    setIsDarkMode(darkMode);
-    convertToWeChat(markdown, currentTheme, darkMode);
   };
 
   // Copy to clipboard
@@ -139,7 +129,7 @@ greet('WeChat');
   const hasContent = markdown.trim().length > 0;
 
   return (
-    <Layout style={{ height: '100vh', background: '#fff' }}>
+    <Layout style={{ height: '100vh', background: '#f5f5f5' }}>
       <Header style={{ padding: 0, background: '#fff', borderBottom: '1px solid #f0f0f0' }}>
         <FormatToolbar
           onCopy={handleCopy}
@@ -149,7 +139,7 @@ greet('WeChat');
         />
       </Header>
 
-      <Content style={{ padding: '16px', overflow: 'auto', background: '#fff' }}>
+      <Content style={{ padding: '16px', overflow: 'auto', background: '#f5f5f5' }}>
         <Row gutter={16} style={{ height: 'calc(100vh - 120px)' }}>
           {/* Left column: Markdown Editor */}
           <Col span={12} style={{ height: '100%' }}>
@@ -165,10 +155,8 @@ greet('WeChat');
             <ThemeSwitcher
               currentTheme={currentTheme}
               onThemeChange={handleThemeChange}
-              isDarkMode={isDarkMode}
-              onDarkModeChange={handleDarkModeChange}
             />
-            <WeChatPreview html={wechatHtml} loading={loading} isDarkMode={isDarkMode} />
+            <WeChatPreview html={wechatHtml} theme={currentTheme} loading={loading} isDarkMode={false} />
           </Col>
         </Row>
       </Content>

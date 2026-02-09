@@ -1,24 +1,49 @@
-import React, { useEffect, useRef } from 'react';
-import { Spin, Space, Typography, Card } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+import { Spin, Space, Typography, Card, message } from 'antd';
 import { MobileOutlined } from '@ant-design/icons';
-import '@/styles/wechat.css';
+import { themeLoader } from '@/utils/themeLoader';
+import type { Theme } from '@/utils/themes';
 
 const { Text } = Typography;
 
 interface WeChatPreviewProps {
   html: string;
+  theme: Theme;
   loading?: boolean;
   isDarkMode: boolean;
 }
 
-export const WeChatPreview: React.FC<WeChatPreviewProps> = ({ html, loading = false, isDarkMode }) => {
+export const WeChatPreview: React.FC<WeChatPreviewProps> = ({
+  html,
+  theme,
+  loading = false,
+  isDarkMode,
+}) => {
   const previewRef = useRef<HTMLDivElement>(null);
+  const [themeLoaded, setThemeLoaded] = useState(false);
 
+  // 加载主题 CSS
   useEffect(() => {
-    if (previewRef.current && html) {
+    const loadTheme = async () => {
+      try {
+        setThemeLoaded(false);
+        await themeLoader.loadTheme(theme.id);
+        setThemeLoaded(true);
+      } catch (error) {
+        message.error(`主题加载失败: ${theme.name}`);
+        console.error('Theme load error:', error);
+      }
+    };
+
+    loadTheme();
+  }, [theme]);
+
+  // 更新 HTML 内容
+  useEffect(() => {
+    if (previewRef.current && html && themeLoaded) {
       previewRef.current.innerHTML = html;
     }
-  }, [html]);
+  }, [html, themeLoaded]);
 
   if (loading) {
     return (
@@ -33,9 +58,9 @@ export const WeChatPreview: React.FC<WeChatPreviewProps> = ({ html, loading = fa
       className="wechat-preview-wrapper"
       style={{
         padding: '16px',
-        backgroundColor: isDarkMode ? '#1e1e1e' : '#fff',
+        backgroundColor: isDarkMode ? '#1e1e1e' : '#f5f5f5',
         borderRadius: '8px',
-        minHeight: '400px',
+        minHeight: '600px',
       }}
     >
       <Card
@@ -46,20 +71,24 @@ export const WeChatPreview: React.FC<WeChatPreviewProps> = ({ html, loading = fa
         }}
       >
         <Space>
-          <MobileOutlined style={{ color: isDarkMode ? '#8fabff' : '#576b95' }} />
-          <Text strong style={{ color: isDarkMode ? '#e8eaed' : '#000' }}>
-            公众号预览
+          <MobileOutlined style={{ color: theme.previewColor }} />
+          <Text strong>
+            公众号预览 - {theme.name}
+          </Text>
+          <Text type="secondary" style={{ fontSize: 12 }}>
+            {theme.description}
           </Text>
         </Space>
       </Card>
 
       <div
         ref={previewRef}
-        className="wechat-container"
+        id="writing-assistant"
         style={{
-          minHeight: '400px',
-          backgroundColor: isDarkMode ? '#2d2d2d' : '#fff',
-          boxShadow: isDarkMode ? '0 2px 8px rgba(0,0,0,0.5)' : '0 2px 8px rgba(0,0,0,0.1)',
+          minHeight: '500px',
+          padding: '20px',
+          backgroundColor: '#fff',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
         }}
       />
     </div>
