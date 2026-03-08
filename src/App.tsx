@@ -6,7 +6,7 @@ import { WeChatPreview } from './components/WeChatFormatter';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { markdownToHtml } from './utils/markdownParser';
 import { copyHtmlContent } from './utils/clipboard';
-import { inlineFinancialBlueTheme } from './utils/themeInliner';
+import { inlineFinancialBlueTheme, inlineThemeWithJuice } from './utils/themeInliner';
 import { getDefaultTheme } from './utils/themes';
 import type { Theme } from './utils/themes';
 
@@ -96,14 +96,18 @@ greet('WeChat');
     // 获取当前暗黑模式状态
     const isDarkMode = document.querySelector('#writing-assistant')?.getAttribute('data-theme') === 'dark';
 
-    // 内联财经蓝主题样式
-    const styledHtml = inlineFinancialBlueTheme(wechatHtml, isDarkMode);
-
-    const result = await copyHtmlContent(styledHtml);
-    if (result.success) {
-      message.success('复制成功！可以直接粘贴到公众号编辑器');
-    } else {
-      message.error(result.error || '复制失败');
+    try {
+      // 使用 juice 完整内联样式
+      const styledHtml = await inlineThemeWithJuice(wechatHtml, currentTheme.id, isDarkMode);
+      const result = await copyHtmlContent(styledHtml);
+      if (result.success) {
+        message.success('复制成功！样式已完整内联');
+      } else {
+        message.error(result.error || '复制失败');
+      }
+    } catch (error) {
+      console.error('Inline failed:', error);
+      message.error('样式内联失败，已使用简化版本');
     }
   };
 

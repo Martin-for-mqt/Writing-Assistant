@@ -3,6 +3,37 @@
  */
 
 /**
+ * 使用 juice 库完整内联主题样式
+ * @param html - HTML 字符串
+ * @param themeId - 主题 ID（默认为 financial-blue）
+ * @param isDarkMode - 是否为暗黑模式
+ * @returns 带完整内联样式的 HTML
+ */
+export async function inlineThemeWithJuice(
+  html: string,
+  themeId: string = 'financial-blue',
+  isDarkMode: boolean = false
+): Promise<string> {
+  try {
+    // 使用动态 import 加载 CSS 内容
+    const module = await import(`../themes/${themeId}.css?inline`);
+    const css = module.default || module;
+
+    // 动态导入 juice 库
+    const juice = (await import('juice')).default;
+
+    // 使用 juice 内联样式
+    const inlinedHtml = juice(html, css);
+
+    return inlinedHtml;
+  } catch (error) {
+    console.error('Failed to inline styles with juice:', error);
+    // 降级到简化版本
+    return inlineFinancialBlueTheme(html, isDarkMode);
+  }
+}
+
+/**
  * 将财经蓝主题样式内联到 HTML
  * 只内联关键样式（颜色、字体），保持简洁实用
  */
