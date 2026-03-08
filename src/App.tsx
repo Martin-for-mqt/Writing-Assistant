@@ -6,6 +6,7 @@ import { WeChatPreview } from './components/WeChatFormatter';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { markdownToHtml } from './utils/markdownParser';
 import { copyHtmlContent } from './utils/clipboard';
+import { inlineFinancialBlueTheme } from './utils/themeInliner';
 import { getDefaultTheme } from './utils/themes';
 import type { Theme } from './utils/themes';
 
@@ -85,14 +86,20 @@ greet('WeChat');
     setCurrentTheme(theme);
   };
 
-  // Copy to clipboard
+  // Copy to clipboard with inline styles
   const handleCopy = async () => {
     if (!wechatHtml) {
       message.warning('没有可复制的内容');
       return;
     }
 
-    const result = await copyHtmlContent(wechatHtml);
+    // 获取当前暗黑模式状态
+    const isDarkMode = document.querySelector('#writing-assistant')?.getAttribute('data-theme') === 'dark';
+
+    // 内联财经蓝主题样式
+    const styledHtml = inlineFinancialBlueTheme(wechatHtml, isDarkMode);
+
+    const result = await copyHtmlContent(styledHtml);
     if (result.success) {
       message.success('复制成功！可以直接粘贴到公众号编辑器');
     } else {
