@@ -6,7 +6,7 @@ import { WeChatPreview } from './components/WeChatFormatter';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { markdownToHtml } from './utils/markdownParser';
 import { copyHtmlContent } from './utils/clipboard';
-import { inlineFinancialBlueTheme, inlineThemeWithJuice } from './utils/themeInliner';
+import { inlineThemeWithJuice } from './utils/themeInliner';
 import { getDefaultTheme } from './utils/themes';
 import type { Theme } from './utils/themes';
 
