@@ -687,21 +687,24 @@ export function inlineFinancialBlueTheme(html: string, isDarkMode = false): stri
     } else if (selector.startsWith('.')) {
       // 类选择器 - 使用 querySelectorAll
       const elements = temp.querySelectorAll(selector);
-      elements.forEach((el: HTMLElement) => {
-        const existingStyle = el.getAttribute('style') || '';
-        const newStyles = stylesToString(styleProps);
-        el.setAttribute('style', `${existingStyle} ${newStyles}`);
+      elements.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          const existingStyle = el.getAttribute('style') || '';
+          const newStyles = stylesToString(styleProps);
+          el.setAttribute('style', `${existingStyle} ${newStyles}`);
+        }
       });
     } else {
       // 标签选择器
       const elements = temp.querySelectorAll(selector);
-      elements.forEach((el: HTMLElement) => {
-        const existingStyle = el.getAttribute('style') || '';
-        const newStyles = stylesToString(styleProps);
-        el.setAttribute('style', `${existingStyle} ${newStyles}`);
+      elements.forEach((el) => {
+        if (el instanceof HTMLElement) {
+          const existingStyle = el.getAttribute('style') || '';
+          const newStyles = stylesToString(styleProps);
+          el.setAttribute('style', `${existingStyle} ${newStyles}`);
+        }
       });
     }
-  });
 
   return temp.innerHTML;
 }
