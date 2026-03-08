@@ -85,6 +85,33 @@
 }
 
 /* ============================================
+   手动暗黑模式切换（优先级高于系统检测）
+   ============================================ */
+
+/* 强制暗黑模式 */
+#writing-assistant[data-theme="dark"] {
+  --primary: #60a5fa;
+  --primary-light: #93c5fd;
+  --accent: #fbbf24;
+  --accent-light: #fcd34d;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-code: #1e293b;
+  --bg-quote: #1e3a5f;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --text-code: #60a5fa;
+  --border: #334155;
+  --border-light: #1e293b;
+  --divider: #fbbf24;
+  --link-hover: #fcd34d;
+  --mark-bg: rgba(251, 191, 36, 0.2);
+  --ins-bg: rgba(96, 165, 250, 0.15);
+}
+
+/* ============================================
    标题系统
    ============================================ */
 

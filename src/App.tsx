@@ -156,7 +156,7 @@ greet('WeChat');
               currentTheme={currentTheme}
               onThemeChange={handleThemeChange}
             />
-            <WeChatPreview html={wechatHtml} theme={currentTheme} loading={loading} isDarkMode={false} />
+            <WeChatPreview html={wechatHtml} theme={currentTheme} loading={loading} />
           </Col>
         </Row>
       </Content>
