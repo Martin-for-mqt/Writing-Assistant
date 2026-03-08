@@ -95,6 +95,14 @@ export const themes: Theme[] = [
     previewColor: '#1e40af',
   },
   {
+    id: 'financial-blue',
+    name: '财经蓝',
+    nameEn: 'Financial Blue',
+    description: '专业简约，深蓝+金色，支持暗黑模式',
+    category: 'minimal',
+    previewColor: '#d4a855',
+  },
+  {
     id: 'organic',
     name: '有机',
     nameEn: 'Organic',

@@ -1,0 +1,727 @@
+/* ============================================
+   财经蓝 - 专业金融主题
+   支持亮色/暗黑模式自动切换
+
+   设计理念：
+   - 深蓝传达专业可信赖
+   - 金色点缀强调关键数据
+   - 简约大气，适合长文阅读
+   ============================================ */
+
+/* CSS 变量 - 亮色模式（默认） */
+#writing-assistant {
+  /* 主色调 */
+  --primary: #1e40af;
+  --primary-light: #3b82f6;
+  /* 强调色 - 金色 */
+  --accent: #d4a855;
+  --accent-light: #fbbf24;
+
+  /* 背景色 */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f9fafb;
+  --bg-code: #f3f4f6;
+  --bg-quote: #eff6ff;
+
+  /* 文字色 */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --text-code: #1e40af;
+
+  /* 边框和线条 */
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --divider: #d4a855;
+
+  /* 其他 */
+  --link-hover: #b45309;
+  --mark-bg: rgba(212, 168, 85, 0.2);
+  --ins-bg: rgba(30, 64, 175, 0.1);
+
+  /* 容器基础样式 */
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 1.5em 1em;
+}
+
+/* 暗黑模式覆盖 */
+@media (prefers-color-scheme: dark) {
+  #writing-assistant {
+    /* 主色调 - 亮蓝 */
+    --primary: #60a5fa;
+    --primary-light: #93c5fd;
+    /* 强调色 - 金色（增强对比） */
+    --accent: #fbbf24;
+    --accent-light: #fcd34d;
+
+    /* 背景色 - 深蓝黑系 */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-code: #1e293b;
+    --bg-quote: #1e3a5f;
+
+    /* 文字色 - 浅色系 */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-tertiary: #64748b;
+    --text-code: #60a5fa;
+
+    /* 边框和线条 */
+    --border: #334155;
+    --border-light: #1e293b;
+    --divider: #fbbf24;
+
+    /* 其他 */
+    --link-hover: #fcd34d;
+    --mark-bg: rgba(251, 191, 36, 0.2);
+    --ins-bg: rgba(96, 165, 250, 0.15);
+  }
+}
+
+/* ============================================
+   标题系统
+   ============================================ */
+
+#writing-assistant h1,
+#writing-assistant h2,
+#writing-assistant h3,
+#writing-assistant h4,
+#writing-assistant h5,
+#writing-assistant h6 {
+  line-height: 1.35;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+#writing-assistant h4,
+#writing-assistant h5,
+#writing-assistant h6 {
+  font-weight: 500;
+}
+
+/* H1 - 文章标题，居中金色下划线 */
+#writing-assistant h1 {
+  font-size: 1.75em;
+  color: var(--text-primary);
+  text-align: center;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* H2 - 主要章节，左侧金色竖线 */
+#writing-assistant h2 {
+  font-size: 1.35em;
+  color: var(--primary);
+  padding: 2px 12px;
+  border-left: 4px solid var(--accent);
+  margin: 0.3em 0;
+}
+
+#writing-assistant h2 a {
+  color: var(--primary);
+}
+
+#writing-assistant h2 code {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+/* H3 - 小节标题 */
+#writing-assistant h3 {
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+/* H4-H6 - 次级标题 */
+#writing-assistant h4,
+#writing-assistant h5,
+#writing-assistant h6 {
+  font-size: 1em;
+  color: var(--text-secondary);
+}
+
+/* 首个标题无上边距 */
+#writing-assistant > h1:first-child,
+#writing-assistant > h2:first-child,
+#writing-assistant > h3:first-child,
+#writing-assistant > h4:first-child,
+#writing-assistant > h5:first-child,
+#writing-assistant > h6:first-child {
+  margin-top: 0;
+}
+
+/* ============================================
+   段落
+   ============================================ */
+
+#writing-assistant p {
+  margin-bottom: 1em;
+  line-height: 1.8;
+}
+
+#writing-assistant p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   行内文本样式
+   ============================================ */
+
+/* 加粗 - 金色强调 */
+#writing-assistant strong,
+#writing-assistant b {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+#writing-assistant em,
+#writing-assistant i {
+  font-style: italic;
+}
+
+#writing-assistant del,
+#writing-assistant s,
+#writing-assistant strike {
+  color: var(--text-secondary);
+  text-decoration: line-through;
+}
+
+/* 高亮标记 - 金色半透明背景 */
+#writing-assistant mark {
+  background-color: var(--mark-bg);
+  color: var(--text-primary);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+#writing-assistant small {
+  font-size: 0.875em;
+  color: var(--text-secondary);
+}
+
+#writing-assistant sup,
+#writing-assistant sub {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+#writing-assistant sup {
+  vertical-align: super;
+}
+
+#writing-assistant sub {
+  vertical-align: sub;
+}
+
+#writing-assistant ins {
+  background-color: var(--ins-bg);
+  text-decoration: none;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+}
+
+#writing-assistant q {
+  quotes: '"' '"' '' ' ' '';
+  color: var(--text-primary);
+}
+
+#writing-assistant q::before {
+  content: open-quote;
+  color: var(--accent);
+}
+
+#writing-assistant q::after {
+  content: close-quote;
+  color: var(--accent);
+}
+
+#writing-assistant var {
+  font-style: italic;
+  color: var(--primary);
+}
+
+#writing-assistant samp,
+#writing-assistant tt {
+  font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.85em;
+  background-color: var(--bg-secondary);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+#writing-assistant abbr[title] {
+  border-bottom: 1px dotted var(--text-secondary);
+  cursor: help;
+  text-decoration: none;
+}
+
+/* ============================================
+   链接 - 金色带下划线
+   ============================================ */
+
+#writing-assistant a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+#writing-assistant a:hover {
+  color: var(--link-hover);
+}
+
+/* ============================================
+   引用块 - 金色左边框 + 蓝色背景
+   ============================================ */
+
+#writing-assistant blockquote {
+  display: block;
+  font-size: 0.95em;
+  overflow: auto;
+  border-left: 4px solid var(--accent);
+  padding: 12px 20px;
+  margin: 1em 0;
+  background: var(--bg-quote);
+}
+
+#writing-assistant blockquote p {
+  margin-bottom: 0.5em;
+  line-height: 1.7;
+}
+
+#writing-assistant blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* 嵌套引用 - 蓝色边框 */
+#writing-assistant blockquote blockquote {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  border-left-color: var(--primary);
+}
+
+/* ============================================
+   代码
+   ============================================ */
+
+#writing-assistant code {
+  font-family: 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.9em;
+  background-color: var(--bg-secondary);
+  color: var(--text-code);
+  padding: 2px 4px;
+  border-radius: 3px;
+  word-break: break-all;
+}
+
+#writing-assistant pre {
+  margin: 1em 0;
+  padding: 1.2em;
+  background-color: var(--bg-code);
+  border-radius: 10px;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+#writing-assistant pre code {
+  background-color: transparent;
+  color: var(--text-primary);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+/* ============================================
+   表格
+   ============================================ */
+
+#writing-assistant table {
+  display: table;
+  width: 100%;
+  margin: 1em 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.95em;
+  text-align: left;
+}
+
+#writing-assistant th,
+#writing-assistant td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+#writing-assistant th {
+  font-weight: bold;
+  color: var(--bg-primary);
+  background-color: var(--primary);
+  text-align: center;
+  min-width: 6em;
+}
+
+#writing-assistant tbody tr:nth-child(even) {
+  background-color: var(--bg-tertiary);
+}
+
+/* 前言表格 */
+#writing-assistant .frontmatter-table {
+  width: auto;
+  margin-bottom: 1.5em;
+  font-size: 0.875em;
+  border: none;
+}
+
+#writing-assistant .frontmatter-table td {
+  padding: 0.25em 0.75em 0.25em 0;
+  border: none;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+#writing-assistant .frontmatter-key {
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+#writing-assistant .frontmatter-key::after {
+  content: ':';
+}
+
+#writing-assistant .frontmatter-value {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   列表
+   ============================================ */
+
+#writing-assistant ul,
+#writing-assistant ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+#writing-assistant ul {
+  list-style-type: disc;
+}
+
+#writing-assistant ol {
+  list-style-type: decimal;
+}
+
+#writing-assistant li {
+  margin-bottom: 0.4em;
+  line-height: 1.7;
+}
+
+#writing-assistant ul li::marker {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+#writing-assistant li > ul,
+#writing-assistant li > ol {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+#writing-assistant ul ul {
+  list-style-type: circle;
+}
+
+#writing-assistant ul ul ul {
+  list-style-type: square;
+}
+
+#writing-assistant ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#writing-assistant li.task-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+}
+
+#writing-assistant input[type='checkbox'] {
+  margin-top: 0.35em;
+  accent-color: var(--accent);
+}
+
+/* ============================================
+   分割线 - 金色细线
+   ============================================ */
+
+#writing-assistant hr {
+  margin: 1.5em 0;
+  border: none;
+  border-top: 1px solid var(--divider);
+  border-radius: 2px;
+}
+
+/* ============================================
+   图片与媒体
+   ============================================ */
+
+#writing-assistant img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1em auto;
+}
+
+#writing-assistant picture {
+  display: block;
+  margin: 1em 0;
+}
+
+#writing-assistant picture img {
+  margin: 0;
+}
+
+#writing-assistant figure {
+  margin: 1em 0;
+  text-align: center;
+}
+
+#writing-assistant figure img {
+  margin: 0 auto;
+}
+
+#writing-assistant figcaption {
+  margin-top: 0.5em;
+  font-size: 0.875em;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   Ruby 注音
+   ============================================ */
+
+#writing-assistant ruby {
+  ruby-align: center;
+}
+
+#writing-assistant rt {
+  font-size: 0.5em;
+  color: var(--text-secondary);
+}
+
+#writing-assistant rp {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   脚注
+   ============================================ */
+
+#writing-assistant .footnotes {
+  margin-top: 1.5em;
+  padding-top: 0.75em;
+  border-top: 1px solid var(--border);
+  font-size: 0.875em;
+  color: var(--text-secondary);
+}
+
+#writing-assistant .footnotes ol {
+  padding-left: 1.25em;
+}
+
+#writing-assistant .footnote-ref {
+  font-size: 0.75em;
+  vertical-align: super;
+  color: var(--accent);
+}
+
+#writing-assistant .footnote-backref,
+#writing-assistant .data-footnote-backref {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ============================================
+   定义列表
+   ============================================ */
+
+#writing-assistant dl {
+  margin: 1em 0;
+}
+
+#writing-assistant dt {
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 0.5em;
+}
+
+#writing-assistant dt:first-child {
+  margin-top: 0;
+}
+
+#writing-assistant dd {
+  margin-left: 1.25em;
+  margin-top: 0.2em;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   键盘按键
+   ============================================ */
+
+#writing-assistant kbd {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.8125em;
+  display: inline-block;
+  padding: 0.15em 0.4em;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 var(--border);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   警告框
+   ============================================ */
+
+#writing-assistant .markdown-alert {
+  display: block;
+  overflow: auto;
+  margin: 1em 0;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border-left: 3px solid;
+  background: var(--bg-secondary);
+}
+
+#writing-assistant .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 0.3em;
+}
+
+#writing-assistant .markdown-alert-note {
+  background-color: var(--bg-quote);
+  border-left-color: var(--primary);
+}
+
+#writing-assistant .markdown-alert-note .markdown-alert-title {
+  color: var(--primary);
+}
+
+#writing-assistant .markdown-alert-tip {
+  background-color: var(--bg-quote);
+  border-left-color: var(--accent);
+}
+
+#writing-assistant .markdown-alert-tip .markdown-alert-title {
+  color: var(--accent);
+}
+
+#writing-assistant .markdown-alert-important {
+  background-color: var(--bg-quote);
+  border-left-color: var(--primary);
+}
+
+#writing-assistant .markdown-alert-important .markdown-alert-title {
+  color: var(--primary);
+}
+
+#writing-assistant .markdown-alert-warning {
+  background-color: var(--bg-quote);
+  border-left-color: var(--accent);
+}
+
+#writing-assistant .markdown-alert-warning .markdown-alert-title {
+  color: var(--accent);
+}
+
+#writing-assistant .markdown-alert-caution {
+  background-color: var(--bg-quote);
+  border-left-color: var(--accent);
+}
+
+#writing-assistant .markdown-alert-caution .markdown-alert-title {
+  color: var(--accent);
+}
+
+/* ============================================
+   数学公式
+   ============================================ */
+
+#writing-assistant .math-inline {
+  font-size: 1em;
+}
+
+#writing-assistant .math-display {
+  margin: 1em 0;
+  overflow-x: auto;
+  text-align: center;
+}
+
+/* ============================================
+   折叠详情
+   ============================================ */
+
+#writing-assistant details {
+  margin: 1em 0;
+  padding: 0.5em 0.75em;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+#writing-assistant summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+#writing-assistant details[open] summary {
+  margin-bottom: 0.5em;
+}
+
+/* ============================================
+   嵌入媒体
+   ============================================ */
+
+#writing-assistant iframe,
+#writing-assistant video {
+  display: block;
+  max-width: 100%;
+  margin: 1em 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   元信息与时间
+   ============================================ */
+
+#writing-assistant .meta,
+#writing-assistant time {
+  font-size: 0.875em;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   首行缩进变体
+   ============================================ */
+
+#writing-assistant.indent-first-line > p {
+  text-indent: 2em;
+}
