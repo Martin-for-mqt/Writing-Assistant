@@ -114,6 +114,27 @@ export function inlineFinancialBlueTheme(html: string, isDarkMode = false): stri
       code.style.color = colors.primary;
       code.style.padding = '2px 4px';
       code.style.borderRadius = '3px';
+      code.style.fontFamily = "'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace";
+    }
+  });
+
+  // 代码块（需要特殊处理，确保 pre 内的 code 也有样式）
+  temp.querySelectorAll('pre').forEach((pre) => {
+    if (pre instanceof HTMLElement) {
+      pre.style.backgroundColor = colors.bg;
+      pre.style.padding = '1.2em';
+      pre.style.borderRadius = '10px';
+      pre.style.overflowX = 'auto';
+      pre.style.lineHeight = '1.6';
+
+      // 处理 pre 内的 code
+      const preCode = pre.querySelector('code');
+      if (preCode instanceof HTMLElement) {
+        preCode.style.backgroundColor = 'transparent';
+        preCode.style.color = 'inherit';
+        preCode.style.padding = '0';
+        preCode.style.borderRadius = '0';
+      }
     }
   });
 
