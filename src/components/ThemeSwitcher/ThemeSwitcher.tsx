@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Space, Typography, Card, Divider } from 'antd';
+import { Select, Space, Typography, Card } from 'antd';
 import { BgColorsOutlined } from '@ant-design/icons';
 import { themes, themeCategories, getThemesByCategory, type Theme } from '@/utils/themes';
 
